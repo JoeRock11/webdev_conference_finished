@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.cedr.webdev_conference_finished.R;
@@ -19,6 +20,7 @@ public class CheeseDetailActivity2 extends AppCompatActivity {
     private Toolbar mToolbar;
     private ImageView mImgCheeseLarge;
     private CircleImageView mImgCheese;
+    private TextView mTxtCheeseName;
 
 
     @Override
@@ -38,12 +40,15 @@ public class CheeseDetailActivity2 extends AppCompatActivity {
 
         Glide.with(this).load(getIntent().getIntExtra("DrawableResID", 0)).into(mImgCheese);
         Glide.with(this).load(getIntent().getIntExtra("DrawableResID", 0)).into(mImgCheeseLarge);
+
+        mTxtCheeseName.setText(getIntent().getStringExtra("CheeseName"));
     }
 
     private void bindActivity() {
         mToolbar        = (Toolbar) findViewById(R.id.main_toolbar);
         mImgCheeseLarge = (ImageView) findViewById(R.id.main_imageview_placeholder);
         mImgCheese      = (CircleImageView) findViewById(R.id.imgCheese);
+        mTxtCheeseName = (TextView) findViewById(R.id.txtCheeseName);
     }
 
     @Override

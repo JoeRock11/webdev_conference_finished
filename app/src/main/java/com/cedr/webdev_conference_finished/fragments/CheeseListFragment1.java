@@ -29,6 +29,7 @@ public class CheeseListFragment1 extends BaseCheeseFragment {
     protected void onItemClicked(View view, CheeseModel cheese) {
         Intent intent = new Intent(getContext(), CheeseDetailActivity2.class);
         intent.putExtra("DrawableResID", cheese.CheeseDrawable);
+        intent.putExtra("CheeseName", cheese.CheeseDescription);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptionsCompat optionsCompat =
